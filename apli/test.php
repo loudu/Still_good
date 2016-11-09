@@ -27,6 +27,13 @@
                         $magasins= json_decode($resp);
 
 
+
+/*
+        echo $id_mag;
+        echo ($magasins[0]->id);
+        echo $magasins[$id_mag]->nom;
+*/
+
         //$produit= json_decode($resp);
                             //print_r($produit);
                             //echo ($produit[0]->nom);
@@ -34,13 +41,16 @@
 
                              foreach ($produit as $produit){
                                 echo '<table>';
-                                echo '<tr>';
-                                echo '<td>'.$produit->nom.'</td>';
-                                echo "<td>".$magasins[$produit->id_magasin]->nom."</td>";
-                                echo "<td>".$produit->date_peremption."</td>";
-                                echo  "</tr>";
+                                 echo '<tr>';
+                                 echo '<td>'.$produit->nom.'</td>';
+                                 $id_mag = ($produit->id_magasin);
+                                 $id_mag = $id_mag-1;
+                                 echo "<td>".$magasins[$id_mag]->nom."</td>";
+                                 echo "<td>".$produit->date_peremption."</td>";
+                                 echo  "</tr>";
                                 echo '</table>';
                             };
+
 ?>
 
 

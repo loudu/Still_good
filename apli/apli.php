@@ -58,6 +58,9 @@ $resp = curl_exec($curl);
 curl_close($curl);
 
 $magasins= json_decode($resp);
+
+$id_mag = ($produit[0]->id_magasin);
+$id_mag = $id_mag-1;
 ?>
 
 
@@ -114,7 +117,7 @@ $magasins= json_decode($resp);
                       </tr>
                     </thead>
                     <tbody>
-                       
+
                        <?php
 
 
@@ -122,7 +125,9 @@ $magasins= json_decode($resp);
 
                            echo '<tr>';
                            echo '<td>'.$produit->nom.'</td>';
-                           echo "<td>".$magasins[$produit->id_magasin]->nom."</td>";
+                           $id_mag = ($produit->id_magasin);
+                           $id_mag = $id_mag-1;
+                           echo "<td>".$magasins[$id_mag]->nom."</td>";
                            echo "<td>".$produit->date_peremption."</td>";
                            echo  "</tr>";
 
