@@ -9,6 +9,14 @@ $app->get('/produits',function ($request, $response, $args){
 });
 
 
+$app->get('/magasins',function ($request, $response, $args){
+    $sth = $this->db->prepare("SELECT * FROM magasin ORDER by id");
+    $sth->execute();
+    $magasins = $sth->fetchAll();
+    return $this -> response -> withJson($magasins);
+});
+
+
 //voir un produit en particulier
 
 $app->get('/produit/[{id}]',function ($request, $response, $args){
