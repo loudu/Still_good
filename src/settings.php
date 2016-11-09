@@ -18,9 +18,9 @@ return [
 
         'db' => [
             "host" =>"localhost",
-            "dbname"=>"stiilgood",
+            "dbname"=>"stillgood",
             "user" => "root",
-            "password"=>"root",
+            "password"=>"",
             ],
     ],
 ];
