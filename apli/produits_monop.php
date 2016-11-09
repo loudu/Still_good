@@ -99,7 +99,7 @@ $magasins= json_decode($resp);
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>Produits</h2>
+                <h2>Monoprix</h2>
                 <hr class="star-light">
             </div>
         </div>
@@ -111,6 +111,7 @@ $magasins= json_decode($resp);
                         <th>Produit </th>
                         <th>Magasin</th>
                         <th>Date de péremption</th>
+                        <th>Reserver</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -124,6 +125,7 @@ $magasins= json_decode($resp);
                         echo '<td>'.$produit->nom.'</td>';
                         echo "<td>".$magasins[$produit->id_magasin]->nom."</td>";
                         echo "<td>".$produit->date_peremption."</td>";
+                        echo  "<td> <input type='checkbox'>";
                         echo  "</tr>";
 
                     };
@@ -132,6 +134,7 @@ $magasins= json_decode($resp);
 
                     </tbody>
                 </table>
+                <button class="btn btn-lg btn-outline"> Valider </button>
             </div>
         </div>
     </div>

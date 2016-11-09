@@ -88,7 +88,7 @@ $id_mag = $id_mag-1;
                         <a href="#about">Produits</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Contact</a>
+                        <a href="http://localhost/Hackathon/still_good/apli/produits_monop">Monoprix</a>
                     </li>
                 </ul>
             </div>
@@ -114,6 +114,7 @@ $id_mag = $id_mag-1;
                         <th>Produit </th>
                         <th>Magasin</th>
                         <th>Date de péremption</th>
+                          <th>Reserver</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -129,14 +130,13 @@ $id_mag = $id_mag-1;
                            $id_mag = $id_mag-1;
                            echo "<td>".$magasins[$id_mag]->nom."</td>";
                            echo "<td>".$produit->date_peremption."</td>";
+                           echo  "<td> <input type='checkbox'>";
                            echo  "</tr>";
-
                        };
                         ?>
-                      
-                      
                     </tbody>
                   </table>
+                    <button class="btn btn-lg btn-outline"> Valider </button>
                 </div>
             </div>
         </div>
@@ -166,6 +166,8 @@ $id_mag = $id_mag-1;
     <!-- Theme JavaScript -->
     <script src="js/freelancer.min.js"></script>
 
+
+    
 </body>
 
 </html>
