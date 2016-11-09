@@ -20,7 +20,7 @@ return [
             "host" =>"localhost",
             "dbname"=>"stiilgood",
             "user" => "root",
-            "password"=>"root",
+            "password"=>"",
             ],
     ],
 ];
