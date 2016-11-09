@@ -114,16 +114,7 @@ $magasins= json_decode($resp);
                       </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td>Boulette</td>
-                        <td>Leclerc</td>
-                        <td>07/11/2016</td>
-                      </tr>
-                      <tr>
-                        <td>Poulet</td>
-                        <td>FrancPrix</td>
-                        <td>07/11/2016</td>
-                      </tr>
+                       
                        <?php
 
 
