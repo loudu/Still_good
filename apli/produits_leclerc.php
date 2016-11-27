@@ -16,6 +16,7 @@
 
     <!-- Theme CSS -->
     <link href="css/freelancer.min.css" rel="stylesheet">
+    <link href="css/freelancer.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -36,7 +37,7 @@
                 $curl = curl_init();
                 curl_setopt_array($curl, array(
                     CURLOPT_RETURNTRANSFER => 1,
-                    CURLOPT_URL => 'http://localhost/Hackathon/still_good/public/produits/',
+                    CURLOPT_URL => 'http://localhost/Hackathon/still_good/public/produit/supermarches/1',
 
                 ));
 
@@ -96,32 +97,19 @@
                     <thead>
                       <tr>
                         <th>Produit </th>
-                        <th>Magasin</th>
                         <th>Date de péremption</th>
                       </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td>Boulette</td>
-                        <td>Leclerc</td>
-                        <td>07/11/2016</td>
-                      </tr>
-                      <tr>
-                        <td>Poulet</td>
-                        <td>FrancPrix</td>
-                        <td>07/11/2016</td>
-                      </tr>
+
                        <?php
 
 
                        foreach ($produit as $produit){
-
                            echo '<tr>';
                            echo '<td>'.$produit->nom.'</td>';
-                           echo "<td>".$produit->id_magasin."</td>";
                            echo "<td>".$produit->date_peremption."</td>";
                            echo  "</tr>";
-
                        };
                         ?>
                       
