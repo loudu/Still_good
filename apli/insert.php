@@ -16,7 +16,6 @@
 
     <!-- Theme CSS -->
     <link href="css/freelancer.min.css" rel="stylesheet">
-    <link href="css/freelancer.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -34,27 +33,30 @@
 
 
 <?php
-                $curl = curl_init();
-                curl_setopt_array($curl, array(
-                    CURLOPT_RETURNTRANSFER => 1,
-                    CURLOPT_URL => 'http://localhost/Hackathon/still_good/public/produits',
+/*
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "stillgood";
 
-                ));
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
 
-                $resp = curl_exec($curl);
-                curl_close($curl);
-                $produit = json_decode($resp);
+        $sql = "INSERT INTO `produits` (`id`, `nom`, `date_peremption`, `id_magasin`, `date_depot`, `asso_recup_id`)
+            VALUES (NULL, 'Viande', '2016-11-08', '1', '2016-11-17', NULL), (NULL, 'Poisson', '2016-11-11', '1', '2016-11-17', NULL) ";
 
+        if ($conn->query($sql) === TRUE) {
+            echo "New record created successfully";
+        } else {
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
 
-                $curl = curl_init();
-                curl_setopt_array($curl, array(
-                    CURLOPT_RETURNTRANSFER => 1,
-                    CURLOPT_URL => 'http://localhost/Hackathon/current/still_good-master/public/magasins',
-                ));
-
-                $resp = curl_exec($curl);
-                curl_close($curl);
-                $magasins = json_decode($resp);
+        $conn->close();
+*/
 
 ?>
 
@@ -83,7 +85,7 @@
                         <a href="#about">Produits</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="#contact">Contact</a>
+                        <a href="http://localhost/Hackathon/still_good/apli/produits_monop">Monoprix</a>
                     </li>
                 </ul>
             </div>
@@ -107,40 +109,35 @@
                     <thead>
                       <tr>
                         <th>Produit </th>
-                        <th>Magasin</th>
+
                         <th>Date de péremption</th>
+
                       </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td>Boulette</td>
-                        <td>Leclerc</td>
-                        <td>07/11/2016</td>
-                      </tr>
-                      <tr>
-                        <td>Poulet</td>
-                        <td>FrancPrix</td>
-                        <td>07/11/2016</td>
-                      </tr>
-                       <?php
-
-
-                       foreach ($produit as $produit){
-                           $magasinsid = $produit->id_magasin;
-                           $magasinsid -= 1;
-                            //.$magasins[$magasinsid]->nom.
-                           echo '<tr>';
-                           echo '<td>'.$produit->nom.'</td>';
-                           echo "<td>".$magasins[$magasinsid]->nom."</td>";
-                           echo "<td>".$produit->date_peremption."</td>";
-                           echo  "</tr>";
-
-                       };
-                        ?>
-                      
-                      
+                    <tr>
+                        <td>Viande</td>
+                        <td>2016-11-08</td>
+                    </tr>
+                    <tr>
+                        <td>Poisson</td>
+                        <td>2016-11-08</td>
+                    </tr>
+                    <tr>
+                        <td>Viande</td>
+                        <td>2016-11-08</td>
+                    </tr>
+                    <tr>
+                        <td>Viande</td>
+                        <td>2016-11-08</td>
+                    </tr>
+                    <tr>
+                        <td>Viande</td>
+                        <td>2016-11-08</td>
+                    </tr>
                     </tbody>
                   </table>
+                    <button class="btn btn-lg btn-outline"> Ajouter à la liste </button>
                 </div>
             </div>
         </div>
@@ -167,8 +164,12 @@
     <script src="js/jqBootstrapValidation.js"></script>
     <script src="js/contact_me.js"></script>
 
+    <!-- Theme JavaScript -->
+    <script src="js/freelancer.min.js"></script>
 
 
+    <script>
+    </script>
 </body>
 
 </html>

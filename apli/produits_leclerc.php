@@ -16,7 +16,6 @@
 
     <!-- Theme CSS -->
     <link href="css/freelancer.min.css" rel="stylesheet">
-    <link href="css/freelancer.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -37,25 +36,15 @@
                 $curl = curl_init();
                 curl_setopt_array($curl, array(
                     CURLOPT_RETURNTRANSFER => 1,
-                    CURLOPT_URL => 'http://localhost/Hackathon/still_good/public/produits',
+                    CURLOPT_URL => 'http://localhost/Hackathon/still_good/public/produits/',
 
                 ));
 
                 $resp = curl_exec($curl);
+
                 curl_close($curl);
-                $produit = json_decode($resp);
 
-
-                $curl = curl_init();
-                curl_setopt_array($curl, array(
-                    CURLOPT_RETURNTRANSFER => 1,
-                    CURLOPT_URL => 'http://localhost/Hackathon/current/still_good-master/public/magasins',
-                ));
-
-                $resp = curl_exec($curl);
-                curl_close($curl);
-                $magasins = json_decode($resp);
-
+                $produit= json_decode($resp);
 ?>
 
 
@@ -126,12 +115,10 @@
 
 
                        foreach ($produit as $produit){
-                           $magasinsid = $produit->id_magasin;
-                           $magasinsid -= 1;
-                            //.$magasins[$magasinsid]->nom.
+
                            echo '<tr>';
                            echo '<td>'.$produit->nom.'</td>';
-                           echo "<td>".$magasins[$magasinsid]->nom."</td>";
+                           echo "<td>".$produit->id_magasin."</td>";
                            echo "<td>".$produit->date_peremption."</td>";
                            echo  "</tr>";
 
@@ -167,7 +154,8 @@
     <script src="js/jqBootstrapValidation.js"></script>
     <script src="js/contact_me.js"></script>
 
-
+    <!-- Theme JavaScript -->
+    <script src="js/freelancer.min.js"></script>
 
 </body>
 

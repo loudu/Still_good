@@ -38,6 +38,14 @@ $app-> delete ( '/produit/[{id}]', function ($request, $response, $args){
 
 
 
+
+
+
+
+
+
+
+
 // ajouté un produit
 $app-> post ('/produit',function ($request, $response) {
     $input =$request->getParsedBody ();
@@ -60,7 +68,7 @@ $app->get('/produit/supermarches/[{id}]',function ($request, $response, $args){
     $sth = $this->db->prepare("SELECT * FROM produits WHERE id_magasin=:id");
     $sth->bindParam("id",$args ['id']);
     $sth->execute();
-    $magasin = $sth->fetchObject();
+    $magasin = $sth->fetchALL();
     return $this->response->withJson($magasin);
 
 });
