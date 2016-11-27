@@ -60,7 +60,7 @@ $app->get('/produit/supermarches/[{id}]',function ($request, $response, $args){
     $sth = $this->db->prepare("SELECT * FROM produits WHERE id_magasin=:id");
     $sth->bindParam("id",$args ['id']);
     $sth->execute();
-    $magasin = $sth->fetchObject();
+    $magasin = $sth->fetchAll();
     return $this->response->withJson($magasin);
 
 });
